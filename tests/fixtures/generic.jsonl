@@ -1,0 +1,2 @@
+{"ts":"2026-10-30T10:00:00Z","session":"batch-1","model":"gpt-5-mini","usage":{"prompt_tokens":2000,"completion_tokens":300,"cached_tokens":0},"file":"docs/a.md"}
+{"ts":"2026-10-30T10:01:00Z","session":"batch-1","model":"unknown-model-9","usage":{"prompt_tokens":100,"completion_tokens":50}}
