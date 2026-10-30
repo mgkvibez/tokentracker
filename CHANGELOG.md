@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.0 - 2026-10-30 (continued)
+
+- The PyPI project is `tokentracker-ai`, not `tokentracker`: PyPI rejects a new
+  project whose name is too close to an existing one (`token-tracker` exists).
+  The distribution, import and command stay `tokentracker`, so install with
+  `pipx install tokentracker-ai` and run `tokentracker`.
+
 ## v0.2.0 - 2026-10-30
 
 - Renamed from tokenwatch to tokentracker: the PyPI name `tokenwatch` belongs

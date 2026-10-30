@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/mgkvibez/tokentracker/actions/workflows/ci.yml/badge.svg)](https://github.com/mgkvibez/tokentracker/actions/workflows/ci.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/tokentracker-ai.svg)](https://pypi.org/project/tokentracker-ai/)
 [![python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
 [![stars](https://img.shields.io/github/stars/mgkvibez/tokentracker?style=flat&color=yellow)](https://github.com/mgkvibez/tokentracker/stargazers)
 
@@ -13,7 +14,7 @@
 
 ```bash
 pipx install git+https://github.com/mgkvibez/tokentracker.git    # works today
-pipx install tokentracker                                     # once the PyPI release is live
+pipx install tokentracker-ai                                     # once the PyPI release is live
 ```
 
 Standard library only. Nothing to configure, nothing to sign into.
