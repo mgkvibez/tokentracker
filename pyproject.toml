@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tokentracker-ai"
-version = "0.2.0"
+version = "0.2.1"
 description = "See where your agent sessions spend tokens: per session, per file, per skill."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -25,4 +25,4 @@ dev = ["pytest>=8"]
 tokentracker = "tokentracker.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["tokenwatch*"]
+include = ["tokentracker*"]

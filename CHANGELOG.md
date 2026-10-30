@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.1 - 2026-10-30
+
+- Fix a broken 0.2.0 wheel that installed a `tokentracker` command with no
+  package behind it. The packaging include pattern still said `tokenwatch*`
+  after the rename, so setuptools built a wheel with no code in it.
+- The release gate now builds a wheel and fails if the package is missing
+  from it, because editable installs hid this completely.
+
 ## v0.2.0 - 2026-10-30 (continued)
 
 - The PyPI project is `tokentracker-ai`, not `tokentracker`: PyPI rejects a new
