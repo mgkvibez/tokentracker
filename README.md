@@ -13,8 +13,7 @@
 ## Install
 
 ```bash
-pipx install git+https://github.com/mgkvibez/tokentracker.git    # works today
-pipx install tokentracker-ai                                     # once the PyPI release is live
+pipx install tokentracker-ai
 ```
 
 Standard library only. Nothing to configure, nothing to sign into.
