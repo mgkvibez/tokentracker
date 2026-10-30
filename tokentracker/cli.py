@@ -57,10 +57,10 @@ def cmd_prices(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="tokenwatch",
+        prog="tokentracker",
         description="See where your agent sessions spend tokens: per session, per file, per skill.",
     )
-    parser.add_argument("--version", action="version", version=f"tokenwatch {__version__}")
+    parser.add_argument("--version", action="version", version=f"tokentracker {__version__}")
     subs = parser.add_subparsers(dest="command", required=True)
 
     common = argparse.ArgumentParser(add_help=False)
@@ -80,7 +80,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_proxy = subs.add_parser("proxy", help="record usage by proxying API calls")
     p_proxy.add_argument("--port", type=int, default=8787)
     p_proxy.add_argument("--upstream", default="https://api.anthropic.com")
-    p_proxy.add_argument("--log", default="~/.tokenwatch/proxy.jsonl")
+    p_proxy.add_argument("--log", default="~/.tokentracker/proxy.jsonl")
     p_proxy.add_argument("--verbose", action="store_true")
     p_proxy.set_defaults(func=cmd_proxy)
 

@@ -1,8 +1,8 @@
 import pytest
 
-from tokenwatch.attribute import UNATTRIBUTED, _split, analyse
-from tokenwatch.records import Event
-from tokenwatch.usage import Usage
+from tokentracker.attribute import UNATTRIBUTED, _split, analyse
+from tokentracker.records import Event
+from tokentracker.usage import Usage
 
 
 def _event(**kw):

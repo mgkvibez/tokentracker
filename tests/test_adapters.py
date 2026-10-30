@@ -1,4 +1,4 @@
-from tokenwatch.adapters import iter_files, load_events, parse_claude_code, parse_generic, parse_line
+from tokentracker.adapters import iter_files, load_events, parse_claude_code, parse_generic, parse_line
 
 FIXTURES = "tests/fixtures"
 

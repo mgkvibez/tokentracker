@@ -73,11 +73,11 @@ def render_json(analysis: Analysis) -> str:
 def render_text(analysis: Analysis, top: int = 5, label_width: Optional[int] = None) -> str:
     """The report a human reads. Percentages always sum to the total spend."""
     if not analysis.events:
-        return "tokenwatch: no model calls found in the given paths.\n"
+        return "tokentracker: no model calls found in the given paths.\n"
 
     width = label_width or 40
     lines: List[str] = []
-    lines.append(f"tokenwatch: {analysis.events} model calls, {_fmt_tokens(analysis.total.total)} tokens")
+    lines.append(f"tokentracker: {analysis.events} model calls, {_fmt_tokens(analysis.total.total)} tokens")
     if analysis.cost_usd is None:
         lines.append("cost: unavailable (no price for these models; pass --prices file.json)")
     else:
@@ -121,11 +121,11 @@ def render_text(analysis: Analysis, top: int = 5, label_width: Optional[int] = N
 
 
 def render_dashboard(analysis: Analysis, top: int = 3) -> str:
-    """Compact, screen-clearable frame for `tokenwatch watch`."""
+    """Compact, screen-clearable frame for `tokentracker watch`."""
     cols = shutil.get_terminal_size((100, 30)).columns
     if not analysis.events:
-        return "\033[2J\033[3;1Htokenwatch: waiting for model calls...\n"
-    lines = ["\033[2J\033[3;1H" + BOLD + "tokenwatch" + RESET + f"  {analysis.events} calls  "
+        return "\033[2J\033[3;1Htokentracker: waiting for model calls...\n"
+    lines = ["\033[2J\033[3;1H" + BOLD + "tokentracker" + RESET + f"  {analysis.events} calls  "
              f"{_fmt_tokens(analysis.total.total)} tokens  {_fmt_cost(analysis.cost_usd)}"]
     for name, usage in analysis.top(top):
         pct = analysis.share(name)

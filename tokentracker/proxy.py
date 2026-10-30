@@ -1,7 +1,7 @@
 """A pass-through proxy that records usage.
 
 Point your client's base URL at it and keep working; every response's usage
-block is appended to a JSONL log that `tokenwatch report` can read. No keys are
+block is appended to a JSONL log that `tokentracker report` can read. No keys are
 stored, nothing is inspected beyond the usage field, and requests are forwarded
 byte for byte.
 
@@ -124,7 +124,7 @@ def serve(port: int, upstream: str, log_path: pathlib.Path, verbose: bool = Fals
     """Run the proxy until interrupted."""
     handler = make_handler(upstream, log_path, verbose)
     server = ThreadingHTTPServer(("127.0.0.1", port), handler)
-    print(f"tokenwatch proxy: http://127.0.0.1:{port} -> {upstream}")
+    print(f"tokentracker proxy: http://127.0.0.1:{port} -> {upstream}")
     print(f"logging usage to {log_path}  (ctrl-c to stop)")
     try:
         server.serve_forever()

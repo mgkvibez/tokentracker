@@ -3,8 +3,8 @@ import pathlib
 
 import pytest
 
-from tokenwatch.pricing import cost, load_prices, match_price
-from tokenwatch.usage import Usage
+from tokentracker.pricing import cost, load_prices, match_price
+from tokentracker.usage import Usage
 
 PRICES = load_prices()
 

@@ -3,8 +3,8 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tokenwatch"
-version = "0.1.0"
+name = "tokentracker"
+version = "0.2.0"
 description = "See where your agent sessions spend tokens: per session, per file, per skill."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -22,7 +22,7 @@ dependencies = []
 dev = ["pytest>=8"]
 
 [project.scripts]
-tokenwatch = "tokenwatch.cli:main"
+tokentracker = "tokentracker.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["tokenwatch*"]

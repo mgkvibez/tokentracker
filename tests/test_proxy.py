@@ -1,7 +1,7 @@
 import json
 
-from tokenwatch.proxy import append_record, usage_from_body
-from tokenwatch.usage import Usage
+from tokentracker.proxy import append_record, usage_from_body
+from tokentracker.usage import Usage
 
 
 def test_anthropic_usage_block_is_parsed():
@@ -27,7 +27,7 @@ def test_non_json_or_absent_usage_yields_nothing():
 
 
 def test_record_is_written_in_the_shape_the_generic_adapter_reads(tmp_path):
-    from tokenwatch.adapters import parse_line
+    from tokentracker.adapters import parse_line
     log = tmp_path / "logs" / "proxy.jsonl"
     append_record(log, "claude-sonnet-4-5", Usage(input=5, output=2), "/v1/messages")
     line = log.read_text().splitlines()[0]

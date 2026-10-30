@@ -1,9 +1,9 @@
 import json
 
-from tokenwatch.attribute import analyse
-from tokenwatch.records import Event
-from tokenwatch.report import render_dashboard, render_json, render_text
-from tokenwatch.usage import Usage
+from tokentracker.attribute import analyse
+from tokentracker.records import Event
+from tokentracker.report import render_dashboard, render_json, render_text
+from tokentracker.usage import Usage
 
 EVENTS = [
     Event(session="sess-a", model="claude-sonnet-4-5", usage=Usage(input=8000, output=100),
@@ -38,4 +38,4 @@ def test_json_report_is_parseable_and_complete():
 def test_dashboard_frame_clears_the_screen_and_fits_a_terminal():
     frame = render_dashboard(analyse(EVENTS))
     assert frame.startswith("\033[2J")
-    assert "tokenwatch" in frame
+    assert "tokentracker" in frame

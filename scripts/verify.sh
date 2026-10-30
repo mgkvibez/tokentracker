@@ -19,7 +19,7 @@ except ModuleNotFoundError:                     # Python 3.9/3.10 have no tomlli
     print(re.search(r'(?m)^version\s*=\s*"([^"]+)"', text).group(1))
 PY
 )
-mv=$(python3 -c "import tokenwatch;print(tokenwatch.__version__)")
+mv=$(python3 -c "import tokentracker;print(tokentracker.__version__)")
 [ "$pv" = "$mv" ] || { echo "pyproject says $pv, module says $mv"; fail "version drift"; }
 echo "version $pv consistent"
 
@@ -28,10 +28,10 @@ python3 -m pytest -q || fail "tests"
 
 echo "== check 4/4: CLI smoke on the bundled fixtures (expects exit 0)"
 out=$(mktemp)
-python3 -m tokenwatch.cli report tests/fixtures --top 3 > "$out" 2>&1
+python3 -m tokentracker.cli report tests/fixtures --top 3 > "$out" 2>&1
 code=$?
 [ "$code" = "0" ] || { echo "expected exit 0, got $code"; cat "$out"; rm -f "$out"; fail "cli exit code"; }
 grep -q "Where the context went" "$out" || { cat "$out"; rm -f "$out"; fail "cli output"; }
-echo "smoke ok: $(grep -m1 -i 'model calls' "$out" | sed 's/tokenwatch: //')"
+echo "smoke ok: $(grep -m1 -i 'model calls' "$out" | sed 's/tokentracker: //')"
 rm -f "$out"
 echo "ALL CHECKS PASSED"

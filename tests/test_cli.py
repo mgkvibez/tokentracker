@@ -1,6 +1,6 @@
 import json
 
-from tokenwatch.cli import main
+from tokentracker.cli import main
 
 FIXTURES = "tests/fixtures"
 

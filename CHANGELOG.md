@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.0 - 2026-10-30
+
+- Renamed from tokenwatch to tokentracker: the PyPI name `tokenwatch` belongs
+  to another project, and `token-tracker` is taken by a tool with the same
+  pitch. The command, import and distribution are all `tokentracker` now.
+- Nothing else changed; no behaviour differences.
+
 ## v0.1.0 - 2026-10-30
 
 - `tokenwatch report <paths>`: totals, estimated cost, ranked context eaters with

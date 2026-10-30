@@ -1,7 +1,7 @@
 """Model prices, kept in data not code.
 
 Defaults are editable starting points, not gospel: providers change prices and
-`tokenwatch` never calls out to find out. Pass `--prices file.json` to replace
+`tokentracker` never calls out to find out. Pass `--prices file.json` to replace
 them, and check the `as_of` stamp before trusting any dollar figure.
 """
 
