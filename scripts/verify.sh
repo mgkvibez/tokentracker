@@ -5,10 +5,10 @@ cd "$(dirname "$0")/.."
 
 fail() { echo "GATE FAILED: $*"; exit 1; }
 
-echo "== check 1/4: editable install"
+echo "== check 1/5: editable install"
 python3 -m pip install -q -e ".[dev]" || fail "install"
 
-echo "== check 2/4: version consistency (pyproject vs module)"
+echo "== check 2/5: version consistency (pyproject vs module)"
 pv=$(python3 - <<'PY'
 import pathlib, re
 try:
@@ -23,7 +23,7 @@ mv=$(python3 -c "import tokentracker;print(tokentracker.__version__)")
 [ "$pv" = "$mv" ] || { echo "pyproject says $pv, module says $mv"; fail "version drift"; }
 echo "version $pv consistent"
 
-echo "== check 3/4: test suite"
+echo "== check 3/5: test suite"
 python3 -m pytest -q || fail "tests"
 
 echo "== check 4/5: CLI smoke on the bundled fixtures (expects exit 0)"
@@ -37,10 +37,18 @@ rm -f "$out"
 
 echo "== check 5/5: the built wheel actually contains the package"
 tmpd=$(mktemp -d)
-python3 -m build --wheel --outdir "$tmpd" -q >/dev/null 2>&1
+python3 -c "import build" 2>/dev/null || fail "the wheel check needs the 'build' package: add it to the dev extra and pip install build"
+build_log=$(mktemp)
+if ! python3 -m build --wheel --outdir "$tmpd" -q >"$build_log" 2>&1; then
+  sed 's/^/    /' "$build_log"; rm -f "$build_log"; fail "the wheel failed to build"
+fi
+rm -f "$build_log"
 python3 - "$tmpd" <<'PY'
 import glob, shutil, sys, zipfile
-w = glob.glob(sys.argv[1] + "/*.whl")[0]
+found = glob.glob(sys.argv[1] + "/*.whl")
+if not found:
+    sys.exit("no wheel was produced")
+w = found[0]
 inside = [n for n in zipfile.ZipFile(w).namelist() if n.startswith("tokentracker/") and n.endswith(".py")]
 shutil.rmtree(sys.argv[1], ignore_errors=True)
 if len(inside) < 5:
