@@ -8,7 +8,7 @@
 [![python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
 [![stars](https://img.shields.io/github/stars/mgkvibez/tokentracker?style=flat&color=yellow)](https://github.com/mgkvibez/tokentracker/stargazers)
 
-![tokentracker report in a terminal](docs/demo/tokentracker.svg)
+![tokentracker watch updating spend as a session grows](docs/demo/tokentracker.gif)
 
 ## Install
 
